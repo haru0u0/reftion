@@ -28,7 +28,7 @@ class GenerateController extends Controller
    $dbid = $md->getUser()->notion_dbid;
 
 
-    //----------------------NOTION------------------------------------------------
+    //--NOTIONから情報を取得する--
     define('NOTION_TOKEN', $token);
     define('NOTION_TABLE', 'https://api.notion.com/v1/databases/'.$dbid.'/query'); 
 
@@ -50,9 +50,9 @@ class GenerateController extends Controller
         ],
         CURLOPT_POSTFIELDS => json_encode([
             "filter" => [
-                "property" => "PJ",
+                "property" => "tag",
                 "multi_select" => [
-                    "contains" => $_REQUEST['pj']
+                    "contains" => $_POST['tag']
                 ]
             ]
         ])
@@ -71,7 +71,9 @@ class GenerateController extends Controller
 
 
 
- //----------------------CiteAPI------------------------------------------------
+
+
+ //--CiteAPIに情報を渡す--
 
  // doiを格納する配列
 $doi_array = [];
@@ -119,7 +121,7 @@ foreach ($doi_array as $citation) {
 }
 
 
-
+//--画面表示する--
 return view('generate', compact('gen_citation_array'));
 
 

@@ -24,8 +24,8 @@ class InsertController extends Controller
     public function index(){
 
    $md = new User();
-   $token = $md->getToken();
-   $dbid = $md->getDBID();
+   $token = $md->getUser()->notion_token;
+   $dbid = $md->getUser()->notion_dbid;
 
   //----------------------CiteAPI------------------------------------------------
      define('REF_DOI', 'https://api.citeas.org/product/'.$_REQUEST['doi']); 
@@ -34,7 +34,6 @@ class InsertController extends Controller
         "Content-Type: application/json",
       ];
     
-
     $ch = curl_init(REF_DOI);
  
     curl_setopt_array($ch,
@@ -54,8 +53,6 @@ class InsertController extends Controller
     curl_close($ch);
 
     $res_cite_array= json_decode($result_cite, true);
-
-
 
     //受け取ったデータなどをnotionに渡せるように定義
 

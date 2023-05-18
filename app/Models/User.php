@@ -17,21 +17,32 @@ class User extends Authenticatable
     protected $table = 'users';
 
     protected $guarded = array('id');
-  
-    public $timestamps = false;
-  
-    public function getUser()
-    {
-      $user = Auth::user();
-      return $user;
 
+    public $timestamps = false;
+
+    public function getLoginUser()
+    {
+        $login_user = Auth::user();
+        return $login_user;
     }
 
-   // public function getDBID()
-   // {
-   //   $dbid = DB::table($this->table)->where('id',Auth::id())->value('notion_dbid');
-   //   return $dbid;
-   // }
+    public function getGuestUser_token()
+    {
+        $guest_user_notion_token = DB::table('users')->where('name', 'guest_user')->value('notion_token');
+        return $guest_user_notion_token;
+    }
+
+    public function getGuestUser_dbid()
+    {
+        $guest_user_notion_dbid  = DB::table('users')->where('name', 'guest_user')->value('notion_dbid');
+        return $guest_user_notion_dbid;
+    }
+
+    // public function getDBID()
+    // {
+    //   $dbid = DB::table($this->table)->where('id',Auth::id())->value('notion_dbid');
+    //   return $dbid;
+    // }
 
     /**
      * The attributes that are mass assignable.

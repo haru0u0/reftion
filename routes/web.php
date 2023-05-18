@@ -13,28 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-    //return view('home');
-//})->name('/')->middleware('auth');
-
 //Route::get('/', 'App\Http\Controllers\HomeController@index')->name('/')->middleware('auth');
 
-    Auth::routes();
-    Route::get('/', 'App\Http\Controllers\HomeController@index');
-    Route::get('/home', 'App\Http\Controllers\HomeController@index');
-    Route::post('/insert', 'App\Http\Controllers\InsertController@index');
-    Route::post('/generate', 'App\Http\Controllers\GenerateController@index');
-    Route::get('/setting', 'App\Http\Controllers\SettingController@view');
-    Route::post('/setting', 'App\Http\Controllers\SettingController@update');
-
+Auth::routes();
+Route::get('/', 'App\Http\Controllers\HomeController@index');
+Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+Route::post('/insert', 'App\Http\Controllers\InsertController@index');
+Route::post('/generate', 'App\Http\Controllers\GenerateController@index');
+Route::get('/setting', 'App\Http\Controllers\SettingController@view');
+Route::post('/setting', 'App\Http\Controllers\SettingController@update');
+Route::get('/prepare', 'App\Http\Controllers\PrepareController@index');
+Route::get(
+    '/privacypolicy',
+    function () {
+        return view('privacypolicy');
+    }
+);
 
 //認証されていない時のみルートにアクセスするとwelcomeを表示する
-Route::group(['middleware' => 'guest'], function() {
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
 });
-});
-
-
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-

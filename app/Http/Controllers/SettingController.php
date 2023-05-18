@@ -32,39 +32,35 @@ class SettingController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        
     }
 
 
     public function view()
     {
         $md = new User();
-        $old_name = $md->getUser()->name;
-        $old_email = $md->getUser()->email;
-        $old_token = $md->getUser()->notion_token;
-        $old_dbid = $md->getUser()->notion_dbid;
+        $old_name = $md->getLoginUser()->name;
+        $old_email = $md->getLoginUser()->email;
+        $old_token = $md->getLoginUser()->notion_token;
+        $old_dbid = $md->getLoginUser()->notion_dbid;
 
-        return view('setting_view', compact('old_name','old_email','old_token','old_dbid'));
+        return view('setting_view', compact('old_name', 'old_email', 'old_token', 'old_dbid'));
     }
 
-public function update(UpdateUserRequest $request){
+    public function update(UpdateUserRequest $request)
+    {
         // ユーザのモデル取得
-try {
-    $user = User::find(Auth::id());
-} catch (Exception $e) {
-}
-// 値更新
-$user->name = $request->input('input_name');
-$user->email = $request->input('input_email');
-// 保存処理
-try{
-    $user->save();
-    return view('setting_complete');
-} catch (Exception $e) {
-}
-
-
-        
+        try {
+            $user = User::find(Auth::id());
+        } catch (Exception $e) {
+        }
+        // 値更新
+        $user->name = $request->input('input_name');
+        $user->email = $request->input('input_email');
+        // 保存処理
+        try {
+            $user->save();
+            return view('setting_complete');
+        } catch (Exception $e) {
+        }
     }
-    
 }

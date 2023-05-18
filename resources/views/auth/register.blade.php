@@ -15,7 +15,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
+    @if(app('env') == 'production')
+    <link href="{{secure_asset('css/auth_styles.css')}}" rel="stylesheet" />
+    @else
     <link href="{{asset('css/auth_styles.css')}}" rel="stylesheet" />
+    @endif
 </head>
 
 <body>
@@ -101,12 +105,17 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="{{asset('js/auth_scripts.js')}}></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src=" https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    @if(app('env') == 'production')
+    <script src="{{secure_asset('js/auth_scripts.js')}}"></script>
+    @else
+    <script src="{{asset('js/auth_scripts.js')}}"></script>
+    @endif
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src=" https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
 
 </html>

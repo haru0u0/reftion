@@ -114,7 +114,7 @@
     <script src="{{secure_asset('js/welcome_scripts.js')}}"></script>
     @else
     <script src="{{asset('js/welcome_scripts.js')}}"></script>
-    @end
+    @endif
 </body>
 
 </html>

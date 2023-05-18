@@ -20,7 +20,7 @@
     <link href="{{secure_asset('css/in_styles.css')}}" rel="stylesheet" />
     @else
     <link href="{{asset('css/in_styles.css')}}" rel="stylesheet" />
-    @end
+    @endif
 </head>
 
 <body id="page-top">
@@ -63,7 +63,7 @@
     <script src="{{secure_asset('js/in_scripts.js')}}"></script>
     @else
     <script src="{{asset('js/in_scripts.js')}}"></script>
-    @end
+    @endif
 </body>
 
 </html>

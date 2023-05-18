@@ -135,7 +135,7 @@
     <script src="{{secure_asset('js/in_scripts.js')}}"></script>
     @else
     <script src="{{asset('js/in_scripts.js')}}"></script>
-    @end
+    @endif
 
 </body>
 

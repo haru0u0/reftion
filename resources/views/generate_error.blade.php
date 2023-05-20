@@ -21,7 +21,6 @@
     @else
     <link href="{{asset('css/in_styles.css')}}" rel="stylesheet" />
     @endif
-
 </head>
 
 <body id="page-top">
@@ -42,30 +41,24 @@
     </nav>
     <!-- Page content-->
     <div class="container">
-        <div class="mt-5">
-            <h1 class="text-center">Your reference list is ready here!</h1>
-            <p class="text-center">Copy and paste the reference list below to your paper!</p>
-            <br>
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <?php
-                        sort($gen_citation_array);
-                        foreach ($gen_citation_array as $reference_list) {
-                            echo '<div class="indent">', $reference_list, '</div>';
-                            echo '<br>';
-                        }
-                        //echo $res_cite_array['citations']['0']['citation'];
-                        ?>
-                    </div>
-                </div>
-            </div>
+        <div class="text-center mt-5">
+            @if($err_code=='3')
+            <p>Oops! It seems like the selected tag is not associated with any references.
+                <br>The tag should be selected by at least one reference (one row) to generate a reference list.
+            </p>
+            @elseif($err_code=='5')
+            <p>Oops! It seems like the "doi" column for one or more references associated with selected tag is/are empty.
+                <br>Please fill all the "doi" column for references associated with selected tag and try again.
+            </p>
+            @else
+            <p>Ooops! It seems like the information of the references (rows) of selected tag are not align with our requirements.
+                <br> Check our requirments for Notion's database columns on the <a href="{{ url('/setting') }}">{{ __('Setting') }}</a> page once again.
+            </p>
+            @endif
+
         </div>
     </div>
-    </div>
-
     <!-- Footer-->
-
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->

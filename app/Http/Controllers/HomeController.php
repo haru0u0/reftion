@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Crypt;
+
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -27,12 +29,18 @@ class HomeController extends Controller
      */
     public function index()
     {
+        //オンボーディング完了後遷移の場合のみ完了メッセージを表示するためのURL取得
+        $prevURL = parse_url(url()->previous(), PHP_URL_PATH);
+        $onboardingURL = parse_url(url('/') . "/onboarding", PHP_URL_PATH);
+        $welcomeURL = parse_url(url('/') . "/", PHP_URL_PATH);
 
+
+        //タグ情報取得のためのNotionとの通信
         $md = new User();
 
         if (Auth::check()) {
-            $token = $md->getLoginUser()->notion_token;
-            $dbid = $md->getLoginUser()->notion_dbid;
+            $token = $md->getLoginUser_token();
+            $dbid = $md->getLoginUser_dbid();
         } else {
             $token = $md->getGuestUser_token();
             $dbid = $md->getGuestUser_dbid();
@@ -72,7 +80,7 @@ class HomeController extends Controller
             /*echo "cURL Error #:" . $err;*/
             return view('home_error');
         }
-        //デバッグ用 var_dump($db_properties_array = json_decode($response, true));
+        //デバッグ用 -> var_dump($db_properties_array = json_decode($response, true));
         $db_properties_array = json_decode($response, true);
         //notionAPIから値はとれたが、戻り値にerrorという文言が含まれていた場合（integrationが追加されていないなど）
         if (in_array('error', $db_properties_array)) {
@@ -88,7 +96,7 @@ class HomeController extends Controller
                 $tag_name_array[] = $option['name'];
             }
 
-            return view('home', compact('tag_name_array', 'db_properties_array'));
+            return view('home', compact('tag_name_array', 'db_properties_array', 'prevURL', 'onboardingURL', 'welcomeURL'));
         }
     }
 }

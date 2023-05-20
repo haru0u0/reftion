@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UpdateUserRequest;
 use Session;
+use Illuminate\Support\Facades\Crypt;
 
 class SettingController extends Controller
 {
@@ -31,19 +32,25 @@ class SettingController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        /*$this->middleware('auth');*/
     }
 
 
     public function view()
     {
         $md = new User();
-        $old_name = $md->getLoginUser()->name;
-        $old_email = $md->getLoginUser()->email;
-        $old_token = $md->getLoginUser()->notion_token;
-        $old_dbid = $md->getLoginUser()->notion_dbid;
+        if (Auth::check()) {
+            $email = $md->getLoginUser()->email;
+            $old_token = $md->getLoginUser_token();
+            $old_dbid = $md->getLoginUser_dbid();
+        } else {
+            $email = $md->getGuestUser_email();
+            $old_token = $md->getGuestUser_token();
+            $old_dbid = $md->getGuestUser_dbid();
+        }
 
-        return view('setting_view', compact('old_name', 'old_email', 'old_token', 'old_dbid'));
+
+        return view('setting_view', compact('email', 'old_token', 'old_dbid'));
     }
 
     public function update(UpdateUserRequest $request)
@@ -54,8 +61,8 @@ class SettingController extends Controller
         } catch (Exception $e) {
         }
         // 値更新
-        $user->name = $request->input('input_name');
-        $user->email = $request->input('input_email');
+        $user->notion_token = Crypt::encryptString($request->input('input_token'));
+        $user->notion_dbid = Crypt::encryptString($request->input('input_dbid'));
         // 保存処理
         try {
             $user->save();

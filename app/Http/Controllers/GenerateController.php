@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Auth;
+use Illuminate\Support\Facades\Crypt;
 
 
 class GenerateController extends Controller
@@ -26,14 +27,12 @@ class GenerateController extends Controller
 
         $md = new User();
         if (Auth::check()) {
-            $token = $md->getLoginUser()->notion_token;
-            $dbid = $md->getLoginUser()->notion_dbid;
+            $token = $md->getLoginUser_token();
+            $dbid = $md->getLoginUser_dbid();
         } else {
             $token = $md->getGuestUser_token();
             $dbid = $md->getGuestUser_dbid();
         }
-
-
         //--NOTIONから情報を取得する--
         define('NOTION_TOKEN', $token);
         define('NOTION_TABLE', 'https://api.notion.com/v1/databases/' . $dbid . '/query');
@@ -70,72 +69,81 @@ class GenerateController extends Controller
         curl_close($curl);
 
         if ($err) {
-            echo "cURL Error #:" . $err;
+            //echo "cURL Error #:" . $err;
+            $err_code = '1';
+            return view('generate_error', compact('err_code'));
+        }
+        $res_notion_array = json_decode($response, true);
+        if (in_array('error', $res_notion_array)) {
+            $err_code = '2';
+            return view('generate_error', compact('err_code'));
+        }
+        if (count($res_notion_array['results']) === 0) {
+            $err_code = '3';
+            return view('generate_error', compact('err_code'));
         } else {
-            $res_notion_array = json_decode($response, true);
-        }
 
+            //--CiteAPIに情報を渡す--
 
+            // doiを格納する配列
+            $doi_array = [];
 
-
-
-        //--CiteAPIに情報を渡す--
-
-        // doiを格納する配列
-        $doi_array = [];
-
-        // resultsの要素を1つずつ処理
-        foreach ($res_notion_array['results'] as $result) {
-            // doiの要素を取り出して配列に追加
-            $doi = $result['properties']['doi']['url'];
-            $doi_array[] = $doi;
-        }
-
-        foreach ($doi_array as $citation) {
-            $REF_DOI_G = 'https://api.citeas.org/product/' . $citation;
-
-            $header = [
-                "Content-Type: application/json",
-            ];
-
-
-            $ch = curl_init($REF_DOI_G);
-
-            curl_setopt_array(
-                $ch,
-                [
-                    CURLOPT_RETURNTRANSFER  => true,
-                    CURLOPT_HTTPHEADER      => $header,
-                ]
-            );
-
-            $result_cite = curl_exec($ch);
-
-            if (curl_errno($ch)) {
-                $error = curl_error($ch);
-                echo $error;
+            // resultsの要素を1つずつ処理
+            foreach ($res_notion_array['results'] as $result) {
+                // doiの要素を取り出して配列に追加
+                $doi = $result['properties']['doi']['url'];
+                $doi_array[] = $doi;
             }
 
-            curl_close($ch);
+            foreach ($doi_array as $citation) {
+                $REF_DOI_G = 'https://api.citeas.org/product/' . $citation;
 
-            $res_cite_array = json_decode($result_cite, true);
-            $gen_citation = $res_cite_array['citations']['0']['citation'];
-            $gen_citation_array[] = $gen_citation;
+                $header = [
+                    "Content-Type: application/json",
+                ];
 
+                $ch = curl_init($REF_DOI_G);
 
+                curl_setopt_array(
+                    $ch,
+                    [
+                        CURLOPT_RETURNTRANSFER  => true,
+                        CURLOPT_HTTPHEADER      => $header,
+                    ]
+                );
 
-            unset($REF_DOI_G);
+                $result_cite = curl_exec($ch);
+                $err_ch = curl_error($ch);
+
+                curl_close($ch);
+
+                if ($err_ch) {
+                    //echo "cURL Error #:" . $err;
+                    //if (curl_errno($ch)) {
+                    //$error = curl_error($ch);
+                    //echo $error;
+                    $err_code = '4';
+                    return view('generate_error', compact('err_code'));
+                }
+                $res_cite_array = json_decode($result_cite, true);
+                if ($res_cite_array == null) {
+                    $err_code = '5';
+                    return view('generate_error', compact('err_code'));
+                } else {
+                    $gen_citation = $res_cite_array['citations']['0']['citation'];
+                    $gen_citation_array[] = $gen_citation;
+
+                    unset($REF_DOI_G);
+                }
+            }
+            //--画面表示する--
+            return view('generate', compact('gen_citation_array'));
+
+            /**
+             * Show the application dashboard.
+             *
+             * @return \Illuminate\Contracts\Support\Renderable
+             */
         }
-
-
-        //--画面表示する--
-        return view('generate', compact('gen_citation_array'));
-
-
-        /**
-         * Show the application dashboard.
-         *
-         * @return \Illuminate\Contracts\Support\Renderable
-         */
     }
 }

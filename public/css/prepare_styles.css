@@ -80,6 +80,25 @@
   --bs-highlight-bg: #fff3cd;
 }
 
+/* 親要素からはみ出た部分は overflow: hidden で隠す*/
+.zoom__img {
+  overflow: hidden;
+}
+
+/* transitionでscaleとobuject-positonをアニメーション */
+.zoom__img img {
+  transition: transform .3s, object-position .3s;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* hover時に画像を拡大 */
+.zoom__img:hover img {
+  transform: scale(2);
+  position: relative;
+}
+
 .down {
   position: absolute;
   bottom: 10px;
@@ -2320,15 +2339,16 @@ progress {
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
-  background-color: #fff;
+  background-color: rgba(243, 149, 48, 0.2);
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 2px solid rgba(243, 149, 48);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   border-radius: 0.375rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   .form-control {

@@ -22,13 +22,19 @@ Route::post('/insert', 'App\Http\Controllers\InsertController@index');
 Route::post('/generate', 'App\Http\Controllers\GenerateController@index');
 Route::get('/setting', 'App\Http\Controllers\SettingController@view');
 Route::post('/setting', 'App\Http\Controllers\SettingController@update');
-Route::get('/prepare', 'App\Http\Controllers\PrepareController@index');
+Route::get('/onboarding', 'App\Http\Controllers\OnboardingController@index');
+Route::post('/onboarding', 'App\Http\Controllers\OnboardingController@update');
 Route::get(
     '/privacypolicy',
     function () {
         return view('privacypolicy');
     }
 );
+
+Route::get('/login/google', 'App\Http\Controllers\GoogleLoginController@redirectToGoogle');
+Route::get('/login/google/callback', 'App\Http\Controllers\GoogleLoginController@handleGoogleCallback');
+
+Route::post('/login/google/logout', 'App\Http\Controllers\GoogleLoginController@postLogout')->name('logout');
 
 //認証されていない時のみルートにアクセスするとwelcomeを表示する
 Route::group(['middleware' => 'guest'], function () {

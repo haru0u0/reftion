@@ -34,10 +34,9 @@
         <div class="container px-4 px-lg-5 text-center">
             <h1 class="mb-1">Reftion</h1>
             <h3 class="mb-5">Generate a reference list from your Notion DB!</h3>
-            <!--<a class="btn btn-primary btn-xl" href="#about">Find Out More</a>-->
-            <a class="btn btn-light btn-xl" href="{{ route('login') }}">{{ __('Login') }}</a>
-            <a class="btn btn-primary btn-xl" href="{{ url('/prepare') }}">{{ __('Register') }}</a>
-            <a class="btn btn-primary btn-xl" href="{{ route('home') }}">{{ __('Try as a guest and learn how it works!') }}</a>
+            <a class="btn btn-primary btn-xl" href="{{ url('/login/google') }}">{{ __('Register / Login with Google') }}</a>
+
+            <a class="btn btn-light btn-xl" href="{{ route('home') }}">{{ __('Try as a guest and learn how it works!') }}</a>
             <div class="down">
                 <p>What is Reftion?</p>
                 <i class="fa-solid fa-arrow-down-long fa-bounce fa-2xl" style="color: #eedcc9;"></i>
@@ -94,9 +93,10 @@
     <section class="content-section">
         <div class="container px-4 px-lg-5 text-center">
             <h2 class="mb-4">Ready to get started? Register now or try as a guest!</h2>
-            <a class="btn btn-light btn-xl" href="{{ route('login') }}">{{ __('Login') }}</a>
-            <a class="btn btn-primary btn-xl" href="{{ route('register') }}">{{ __('Register') }}</a>
-            <a class="btn btn-primary btn-xl" href="{{ route('home') }}">{{ __('Try as a guest and learn how it works!') }}</a>
+            <a class="btn btn-primary btn-xl" href="{{ url('/login/google') }}">{{ __('Register / Login with Google') }}</a>
+            <a class="btn btn-light btn-xl" href="{{ route('home') }}">{{ __('Try as a guest and learn how it works!') }}</a>
+            <br><br>
+            <p>To sign up, you need to log in with Google account. Reftion only collect your email address for user authorization use.</p>
         </div>
     </section>
     <!-- Footer-->

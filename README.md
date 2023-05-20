@@ -97,7 +97,52 @@ Reftion provides a quick and easy way to generate a reference list based on info
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Getting Started (for developers)
+### Prerequisites
+- Composer is installed
+- Laravel is installed
+- PHP is installed
+- DB is created
+- You already are signed up with Google Cloud Platform for OAuth verification.
+
+### Installation
+
+1. Clone the repo
+2. Install npm packages & vite
+   ```sh
+   npm install
+   npm install vite
+   ```
+3. Create user authorization function
+   ```
+   php artisan make:auth
+   ```
+4. Install Laravel Socialite
+   ```
+   composer require laravel/socialite
+   ```
+5. Create & modify DB
+   ```
+   php artisan migrate
+   ```
+6. Go to your DB and rename users.emailverified_at to users.lastlogin_at
+7. Generate the app key
+    ```
+    php artisan key:generate
+    ```
+8. Add information below to the .env file
+    ```
+    GOOGLE_CLIENT_ID=XXXXXXXXXXXX
+    GOOGLE_CLIENT_SECRET=YYYYYYYYYYY
+    GOOGLE_CALLBACK_URL=http://ZZZZZZZZZ/login/google/callback
+
+    GUEST_USER_EMAIL=reftionguest@gmail.com
+    GUEST_USER_TOKEN=secret_z279aEnqy7FZEo8rVkEuQtcpxsSgJEQ4AwICJpkIUvw
+    GUEST_USER_DBID=422fed2fabc04532a7930787a3d1809b
+    ```
+9. Modify the DB info of your .env file if necessary 
+
+## Getting Started (for users)
 
 You have to complete 4 steps below to use Reftion. 
 1. Set up Notion DB Columns

@@ -9,10 +9,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <!-- Font Awesome icons (free version)-->
-    <script src="http://kit.fontawesome.com/eddde291c0.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/eddde291c0.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
-    <link href="http://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-    <link href="http://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     @if(app('env') == 'production')
     <link href="{{secure_asset('css/prepare_styles.css')}}" rel="stylesheet" />
@@ -38,7 +38,7 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sharedb">3. Set to share your Notion DB</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#dbid">4. Share your Notion DB ID with Reftion</a></li>
                 @if ($prevURL!==$settingURL)
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#register">5. Register!</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#register">5. Complete registration!</a></li>
                 @endif
                 <div class="down">
                     <i class="fa-solid fa-arrow-left-long"></i>
@@ -186,7 +186,7 @@
         <!-- 5. Complete registration-->
         <section class="resume-section" id="register">
             <div class="resume-section-content">
-                <h2 class="mb-5">5. Complete registration</h2>
+                <h2 class="mb-5">5. Complete registration!</h2>
                 <div class="mb-5">
                     <p class="lead">Now you are ready to use Reftion!<br>Click the button below and complete your setting.</p>
                     <div class="mb-0">

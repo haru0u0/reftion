@@ -78,13 +78,13 @@ class HomeController extends Controller
         //notionAPIとの通信が失敗した場合
         if ($err) {
             /*echo "cURL Error #:" . $err;*/
-            return view('home_error');
+            return view('home_error', compact('prevURL', 'onboardingURL', 'welcomeURL'));
         }
         //デバッグ用 -> var_dump($db_properties_array = json_decode($response, true));
         $db_properties_array = json_decode($response, true);
         //notionAPIから値はとれたが、戻り値にerrorという文言が含まれていた場合（integrationが追加されていないなど）
         if (in_array('error', $db_properties_array)) {
-            return view('home_error');
+            return view('home_error', compact('prevURL', 'onboardingURL', 'welcomeURL'));
             //成功
         } else {
             $tag_name_array = [];

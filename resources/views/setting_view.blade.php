@@ -44,8 +44,10 @@
     <div class="container">
         <div class="text-center mt-5">
             <h1>Setting</h1>
-            <p>You are logging in as <?php echo $email ?>. <br>
-                If you have any problems regarding to your settings, please check <a class="link inline" href="{{ url('/onboarding') }}">{{ __('our users guide') }}</a> once again. </p>
+            <p>You are logging in as <?php echo $email ?>. <br><br>
+                If you have any problems regarding to your settings,
+                <br>please check <a class="link inline" href="{{ url('/onboarding') }}">{{ __('our users guide') }}</a> once again or please contact us at reftioncs[at]gmail.com.
+            </p>
             <br>
             <form method="POST" action="{{ url('/setting') }}">
                 @csrf

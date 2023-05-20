@@ -47,6 +47,34 @@
 
         </div>
     </div>
+
+    <!-- オンボーディング画面からの直接遷移だったら、完了モーダルを表示する-->
+    @if ($prevURL==$onboardingURL)
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class=" text-center">
+                        <i class="fa-regular fa-face-kiss-wink-heart fa-bounce fa-2xl" style="color: #f39530;"></i><br>
+                        Welcome! You are on the way to completing Reftion' setting!
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <label>
+                        Thank you so much for registering! The information you gave on the previous page has been successfully saved.
+                        <br><br>However, it seems like your Notion database information failed to load.
+                        You can go to the "Setting" page and modify our setting or find "user guide" there to make sure the setting of your Notion database meets all our requirements.
+                        <br><br>If the problem cannot be resolved, please contact us using the contact information provided on the "Settings" page.
+                    </label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Exit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+
     <!-- Footer-->
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -56,6 +84,15 @@
     @else
     <script src="{{asset('js/in_scripts.js')}}"></script>
     @endif
+    <!-- 完了モーダルデフォルト表示用-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+        $(window).on('load', function() {
+            $('#myModal').modal('show');
+        });
+    </script>
 </body>
 
 </html>

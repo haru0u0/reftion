@@ -102,7 +102,11 @@
     <!-- Footer-->
     <footer class="footer text-center">
         <p class="text-muted small mb-0">Copyright &copy; Reftion 2023</p>
-        <a class="text-muted small mb-0" href="{{ url('privacypolicy') }}">{{ __('Privacy Policy') }}</a>
+        &nbsp;<a class="text-muted small mb-0" href="{{ url('privacypolicy') }}">{{ __('Privacy Policy') }}</a>
+        &nbsp;<a class="text-muted small mb-0" href="mailto:reftioncs@gmail.com">{{ __('Contact to Developer') }}</a>
+        &nbsp;<a class="text-muted small mb-0" href="https://github.com/haruchannn/reftion" target='_blank'>{{ __('Github Repos') }}</a>
+        &nbsp;<a class="text-muted small mb-0" href="https://qiita.com/haruchann" target='_blank'>Developer's Qiita</a>
+
 
     </footer>
     <!-- Scroll to Top Button-->

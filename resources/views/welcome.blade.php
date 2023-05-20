@@ -2,6 +2,18 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CGEHHMVX04"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CGEHHMVX04');
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -34,9 +46,8 @@
         <div class="container px-4 px-lg-5 text-center">
             <h1 class="mb-1">Reftion</h1>
             <h3 class="mb-5">Generate a reference list from your Notion DB!</h3>
-            <a class="btn btn-primary btn-xl" href="{{ url('/login/google') }}">{{ __('Register / Login with Google') }}</a>
-
-            <a class="btn btn-light btn-xl" href="{{ route('home') }}">{{ __('Try as a guest and learn how it works!') }}</a>
+            <a class="btn btn-primary btn-xl btn-welcome" href="{{ url('/login/google') }}">{{ __('Register / Login with Google') }}</a>
+            <a class="btn btn-light btn-xl btn-welcome" href="{{ route('home') }}">{{ __('Try Demo without Registeration!') }}</a>
             <div class="down">
                 <p>What is Reftion?</p>
                 <i class="fa-solid fa-arrow-down-long fa-bounce fa-2xl" style="color: #eedcc9;"></i>
@@ -52,8 +63,9 @@
                         Reftion is a quick and easy way to generate a reference list based on information on your Notion DB!<br>
                         We currently employ the format "American Psychological Association 6th edition".
                     </p>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/5sHxjSCvNAc" allowfullscreen>
-                    </iframe>
+                    <div class="youtube">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/5sHxjSCvNAc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
                     <!--<a class="btn btn-dark btn-xl" href="#services">What We Offer</a>-->
                 </div>
             </div>
@@ -95,7 +107,7 @@
         <div class="container px-4 px-lg-5 text-center">
             <h2 class="mb-4">Ready to get started? Register now or try as a guest!</h2>
             <a class="btn btn-primary btn-xl" href="{{ url('/login/google') }}">{{ __('Register / Login with Google') }}</a>
-            <a class="btn btn-light btn-xl" href="{{ route('home') }}">{{ __('Try as a guest and learn how it works!') }}</a>
+            <a class="btn btn-light btn-xl" href="{{ route('home') }}">{{ __('Try Demo without Registeration!') }}</a>
             <br><br>
             <p>To sign up, you need to log in with a Google account. Reftion only collects your email address for user authorization use.</p>
         </div>
@@ -104,7 +116,7 @@
     <footer class="footer text-center">
         <p class="text-muted small mb-0">Copyright &copy; Reftion 2023</p>
         &nbsp;<a class="text-muted small mb-0" href="{{ url('privacypolicy') }}">{{ __('Privacy Policy') }}</a>
-        &nbsp;<a class="text-muted small mb-0" href="mailto:reftioncs@gmail.com">{{ __('Contact to Developer') }}</a>
+        &nbsp;<a class="text-muted small mb-0" href="mailto:reftioncs@gmail.com">{{ __('Contact') }}</a>
         &nbsp;<a class="text-muted small mb-0" href="https://github.com/haruchannn/reftion" target='_blank'>{{ __('Github Repos') }}</a>
         &nbsp;<a class="text-muted small mb-0" href="https://qiita.com/haruchann" target='_blank'>Developer's Qiita</a>
 

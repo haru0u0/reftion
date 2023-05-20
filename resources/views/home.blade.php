@@ -2,6 +2,18 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CGEHHMVX04"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CGEHHMVX04');
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -107,9 +119,9 @@
                 </div>
                 <div class="modal-body">
                     <label>
-                        Thank you so much for trying Reftion as a guest!
-                        This guest account is already set up to connect with <a class="link-primary" target="_blank" href="{{ url('https://haruchann.notion.site/422fed2fabc04532a7930787a3d1809b?v=cae3653b84de479d88a46bbecb5a6086') }}" style="display:inline">{{ __('the sample Notion database') }}</a>.
-                        So all you need to do to generate reference lists is simply to select tags on this page!
+                        Thank you so much for trying Reftion demo!
+                        This demo looks and works exactly in the same way as the one after you really sign up, but already set up to connect with <a class="link-primary" target="_blank" href="{{ url('https://haruchann.notion.site/422fed2fabc04532a7930787a3d1809b?v=cae3653b84de479d88a46bbecb5a6086') }}" style="display:inline">{{ __('the sample Notion database') }}</a> so that you can try out our feature right away.
+                        All you need to do to generate a reference list is simply to select a tag on this page!
                         <br><br>If you want to know more about how to set up to connect Reftion with your Notion database, go to the "Setting" page from the navigation bar then find "user guide".
                         On the "Setting" page, you can also always find the link for the sample Notion database above for your convenience.
                         <br><br>

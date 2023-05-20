@@ -27,7 +27,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/haruchann/reftion">
+  <a href="https://github.com/haruchannn/reftion">
     <img src="public\assets\img\icon.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -36,14 +36,14 @@
   <p align="center">
     Reference list generation from Notion 
     <br />
-    <a href="https://github.com/haruchann/reftion"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/haruchannn/reftion"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/haruchann/reftion">View Demo</a>
+    <a href="https://github.com/haruchannn/reftion">View Demo</a>
     ·
-    <a href="https://github.com/haruchann/reftion/issues">Report Bug</a>
+    <a href="https://github.com/haruchannn/reftion/issues">Report Bug</a>
     ·
-    <a href="https://github.com/haruchann/reftion/issues">Request Feature</a>
+    <a href="https://github.com/haruchannn/reftion/issues">Request Feature</a>
   </p>
 </div>
 
@@ -128,7 +128,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [ ]  Support other citation formats
 - [ ]  Support the case when users want to generate a list with articles which does not have doi
 
-See the [open issues](https://github.com/haruchann/reftion/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/haruchannn/reftion/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -164,9 +164,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-haruchann  - reftioncs@gmail.com
+haruchannn  - reftioncs@gmail.com
 
-Project Link: [https://github.com/haruchann/reftion](https://github.com/haruchann/reftion)
+Project Link: [https://github.com/haruchannn/reftion](https://github.com/haruchannn/reftion)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -184,16 +184,16 @@ Project Link: [https://github.com/haruchann/reftion](https://github.com/haruchan
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/haruchann/reftion.svg?style=for-the-badge
-[contributors-url]: https://github.com/haruchann/reftion/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/haruchann/reftion.svg?style=for-the-badge
-[forks-url]: https://github.com/haruchann/reftion/network/members
-[stars-shield]: https://img.shields.io/github/stars/haruchann/reftion.svg?style=for-the-badge
-[stars-url]: https://github.com/haruchann/reftion/stargazers
-[issues-shield]: https://img.shields.io/github/issues/haruchann/reftion.svg?style=for-the-badge
-[issues-url]: https://github.com/haruchann/reftion/issues
-[license-shield]: https://img.shields.io/github/license/haruchann/reftion.svg?style=for-the-badge
-[license-url]: https://github.com/haruchann/reftion/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/haruchannn/reftion.svg?style=for-the-badge
+[contributors-url]: https://github.com/haruchannn/reftion/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/haruchannn/reftion.svg?style=for-the-badge
+[forks-url]: https://github.com/haruchannn/reftion/network/members
+[stars-shield]: https://img.shields.io/github/stars/haruchannn/reftion.svg?style=for-the-badge
+[stars-url]: https://github.com/haruchannn/reftion/stargazers
+[issues-shield]: https://img.shields.io/github/issues/haruchannn/reftion.svg?style=for-the-badge
+[issues-url]: https://github.com/haruchannn/reftion/issues
+[license-shield]: https://img.shields.io/github/license/haruchannn/reftion.svg?style=for-the-badge
+[license-url]: https://github.com/haruchannn/reftion/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png

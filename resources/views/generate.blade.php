@@ -44,8 +44,9 @@
     <div class="container">
         <div class="mt-5">
             <h1 class="text-center">Your reference list is ready here!</h1>
-            <p class="text-center">Copy and paste the reference list below to your paper!</p>
-            <br>
+            <p class="text-center">Copy and paste the reference list below to your paper! We use the format "American Psychological Association 6th edition". </p>
+
+
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">

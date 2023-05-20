@@ -49,7 +49,8 @@
                 <div class="col-lg-10">
                     <h2>Do you want to manage your references on Notion, but tired to create a reference list all by yourself?</h2>
                     <p class="lead mb-5">
-                        Reftion is a quick and easy way to generate a reference list based on information on your Notion DB!
+                        Reftion is a quick and easy way to generate a reference list based on information on your Notion DB!<br>
+                        We currently employ the format "American Psychological Association 6th edition".
                     </p>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/5sHxjSCvNAc" allowfullscreen>
                     </iframe>
@@ -68,12 +69,12 @@
                 <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                     <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-1"></i></span>
                     <h4><strong>Notion DB Setting</strong></h4>
-                    <p class="text-faded mb-0">Your Notion DB should have "doi" "tag" columns to use this service. </p>
+                    <p class="text-faded mb-0">Your Notion DB should have "doi" and "tag" columns to use this service. </p>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                     <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-2"></i></span>
                     <h4><strong>Connect</strong></h4>
-                    <p class="text-faded mb-0">Register your DB infomation and API key to your Reftion profile.</p>
+                    <p class="text-faded mb-0">Register your DB information and API key to your Reftion profile.</p>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
                     <span class="service-icon rounded-circle mx-auto mb-3"><i class="fa-solid fa-3"></i></span>
@@ -96,7 +97,7 @@
             <a class="btn btn-primary btn-xl" href="{{ url('/login/google') }}">{{ __('Register / Login with Google') }}</a>
             <a class="btn btn-light btn-xl" href="{{ route('home') }}">{{ __('Try as a guest and learn how it works!') }}</a>
             <br><br>
-            <p>To sign up, you need to log in with Google account. Reftion only collect your email address for user authorization use.</p>
+            <p>To sign up, you need to log in with a Google account. Reftion only collects your email address for user authorization use.</p>
         </div>
     </section>
     <!-- Footer-->
